@@ -47,3 +47,9 @@
     (if (vector? s)
       (vec r)
       r)))
+
+; Polindrome Detector: Write a function which returns true if the given sequence is a polindrome 
+(fn [s]
+  (if (contains? [0 1] (count s))
+    true
+    (and (= (first s) (last s)) (recur (drop-last (rest s))))))
