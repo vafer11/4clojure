@@ -53,3 +53,11 @@
   (if (contains? [0 1] (count s))
     true
     (and (= (first s) (last s)) (recur (drop-last (rest s))))))
+
+; Fibonacci Sequence: Write a function which returns the first X fibonacci numbers
+(fn [n]
+  (take n
+        (reduce (fn [l _]
+                  (conj l (apply + (take-last 2 l)))) 
+                [1 1] 
+                (range n))))
