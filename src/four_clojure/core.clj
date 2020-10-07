@@ -25,7 +25,7 @@
 (fn [s n]
   (first (drop n s)))
 
-; Count a Sequence: Write a function which returns the totla number of elements in a sequence.
+; Count a Sequence: Write a function which returns the total number of elements in a sequence.
 (fn [s]
   (reduce
    (fn [c v]
@@ -61,3 +61,7 @@
                   (conj l (apply + (take-last 2 l)))) 
                 [1 1] 
                 (range n))))
+
+; Maximum Number: Write a function which takes a variable number of parameters and returns the maximun number
+(fn [& n] 
+  (last (sort n)))
