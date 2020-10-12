@@ -65,3 +65,28 @@
 ; Maximum Number: Write a function which takes a variable number of parameters and returns the maximun number
 (fn [& n] 
   (last (sort n)))
+
+; Get the Caps: Write a function which takes a string and returns a new string containing only the capital letters
+(fn [s]
+  (->> s
+       (filter #(Character/isUpperCase %))
+       (apply str)))
+
+; Duplicate a Sequence: Write a function which duplicates each element of a sequence
+(fn [s]
+  (->> s
+       (map #(repeat 2 %))
+       (apply concat)))
+
+;Compress a Sequence: Write a function which removes consecutive duplicates from a sequence
+(fn [s]
+  (->> s
+       (dedupe)
+       (apply str)))
+
+; Implement range: Write a function which creates a list of all integers in a given range.
+(fn [initial stop]
+  (loop [result [] e initial]
+    (if (= e stop)
+      result
+      (recur (conj result e) (inc e)))))
