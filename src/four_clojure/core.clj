@@ -90,3 +90,22 @@
     (if (= e stop)
       result
       (recur (conj result e) (inc e)))))
+
+; Factorial Fun: Write a function which calculates factorials.
+(fn [n]
+  (->> n (+ 1) (range 1) (apply *)))
+
+; Interleave Two Seqs: Write a function which takes two sequences and returns the first item from each, then the second item from each, then the third, etc.
+(fn [s1 s2]
+  (mapcat list s1 s2))
+
+; Flatten a Sequence: Write a functon which flatten a sequence
+(fn [s]
+  (loop [acc [] lis s]
+    (if (empty? lis)
+      acc
+      (let [f (first lis)
+            r (rest lis)]
+        (if (coll? f)
+          (recur acc (concat f r))
+          (recur (conj acc f) r))))))
