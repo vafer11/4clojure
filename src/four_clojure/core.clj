@@ -104,8 +104,30 @@
   (loop [acc [] lis s]
     (if (empty? lis)
       acc
-      (let [f (first lis)
-            r (rest lis)]
+      (let [f (first lis) r (rest lis)]
         (if (coll? f)
           (recur acc (concat f r))
           (recur (conj acc f) r))))))
+
+; Replicate a Sequence: Write a function which each element of a sequance variable of a number time
+(fn [s n]
+  (->> s
+       (map #(repeat n %))
+       (apply concat)))
+
+; Interpose a Seq: Write a function which separate the items by an arbitrary value
+(fn [v s]
+  (->> s
+       (mapcat #(list % v))
+       (drop-last)))
+
+; Drop Every Nth Item: Write a function which drops every Nth item from a sequence
+(fn [s v]
+  (filter 
+   #(not= 0 (mod (inc (.indexOf s %)) v)) 
+   s))
+
+; Spit a Sequence: Write a function which slips a sequence into two parts. (split-at restricted)
+(fn [v s]
+  (let [seq-size (count s) n (- seq-size v)]
+    (list (take v s) (take-last n s))))
