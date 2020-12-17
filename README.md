@@ -1,10 +1,6 @@
 # four-clojure
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
+A repository with a few 4clojure problem solutions
 
 ## License
 
