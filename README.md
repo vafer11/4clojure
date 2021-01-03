@@ -1,6 +1,6 @@
 # four-clojure
 
-A repository with a few 4clojure problem solutions
+A project with a few 4clojure problem solutions
 
 ## License
 
